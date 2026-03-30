@@ -8,7 +8,7 @@ const benefits = [
   "Integrates with your existing POS & tools",
 ];
 
-export function CTA() {
+export function CTA({ onStartTrial }: { onStartTrial?: () => void }) {
   return (
     <section id="pricing" className="section-padding">
       <motion.div
