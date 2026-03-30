@@ -53,7 +53,7 @@ export function Navbar({ onStartTrial }: { onStartTrial?: () => void }) {
                 </a>
               ))}
               <Button variant="ghost" size="sm" className="justify-start">Log In</Button>
-              <Button size="sm" className="bg-accent text-accent-foreground hover:bg-green-dark">Get Started Free</Button>
+              <Button size="sm" className="bg-accent text-accent-foreground hover:bg-green-dark" onClick={() => { setOpen(false); onStartTrial?.(); }}>Get Started Free</Button>
             </div>
           </motion.div>
         )}

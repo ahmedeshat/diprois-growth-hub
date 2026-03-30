@@ -10,7 +10,7 @@ const benefits = [
 
 export function CTA({ onStartTrial }: { onStartTrial?: () => void }) {
   return (
-    <section id="pricing" className="section-padding">
+    <section className="section-padding">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
