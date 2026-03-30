@@ -12,13 +12,6 @@ import {
 import { toast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
-import { toast } from "@/hooks/use-toast";
-import { Loader2 } from "lucide-react";
 
 interface SignupDialogProps {
   open: boolean;
@@ -38,10 +31,16 @@ export function SignupDialog({ open, onOpenChange, plan }: SignupDialogProps) {
     }
     setLoading(true);
 
-    // TODO: Replace with actual email forwarding via Lovable Cloud edge function
     try {
-      // Simulate sending — replace with supabase.functions.invoke() once backend is set up
-      await new Promise((r) => setTimeout(r, 1200));
+      const { error } = await supabase.functions.invoke("submit-trial-lead", {
+        body: {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          plan: plan || null,
+        },
+      });
+      if (error) throw error;
       toast({
         title: "Thank you for your interest!",
         description: "We'll be in touch shortly to get you started.",
