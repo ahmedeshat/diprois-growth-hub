@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Pricing", href: "#pricing" },
 ];
 
-export function Navbar() {
+export function Navbar({ onStartTrial }: { onStartTrial?: () => void }) {
   const [open, setOpen] = useState(false);
 
   return (
