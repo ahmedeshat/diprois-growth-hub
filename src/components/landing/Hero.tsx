@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import heroDashboard from "@/assets/hero-dashboard.jpg";
 
-export function Hero() {
+export function Hero({ onStartTrial }: { onStartTrial?: () => void }) {
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
       {/* Background gradient orbs */}
