@@ -30,7 +30,7 @@ export function Navbar({ onStartTrial }: { onStartTrial?: () => void }) {
 
         <div className="hidden md:flex items-center gap-3">
           <Button variant="ghost" size="sm">Log In</Button>
-          <Button size="sm" className="bg-accent text-accent-foreground hover:bg-green-dark">Get Started Free</Button>
+          <Button size="sm" className="bg-accent text-accent-foreground hover:bg-green-dark" onClick={onStartTrial}>Get Started Free</Button>
         </div>
 
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>

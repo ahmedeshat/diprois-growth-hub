@@ -52,7 +52,7 @@ export function Hero({ onStartTrial }: { onStartTrial?: () => void }) {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-green-dark h-12 px-8 text-base font-semibold gap-2">
+            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-green-dark h-12 px-8 text-base font-semibold gap-2" onClick={onStartTrial}>
               Start Free Trial <ArrowRight size={18} />
             </Button>
             <Button size="lg" variant="outline" className="h-12 px-8 text-base font-medium gap-2 border-border hover:bg-muted">

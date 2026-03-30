@@ -32,7 +32,7 @@ export function CTA({ onStartTrial }: { onStartTrial?: () => void }) {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-green-dark h-12 px-8 text-base font-semibold gap-2">
+            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-green-dark h-12 px-8 text-base font-semibold gap-2" onClick={onStartTrial}>
               Start Free Trial <ArrowRight size={18} />
             </Button>
             <Button size="lg" variant="outline" className="h-12 px-8 text-base font-medium border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent">
