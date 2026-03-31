@@ -52,7 +52,7 @@ export function Navbar({ onStartTrial }: { onStartTrial?: () => void }) {
                   {l.label}
                 </a>
               ))}
-              <Button variant="ghost" size="sm" className="justify-start">Log In</Button>
+              <Button variant="ghost" size="sm" className="justify-start" onClick={() => { setOpen(false); window.location.href = "/auth"; }}>Log In</Button>
               <Button size="sm" className="bg-accent text-accent-foreground hover:bg-green-dark" onClick={() => { setOpen(false); onStartTrial?.(); }}>Get Started Free</Button>
             </div>
           </motion.div>
