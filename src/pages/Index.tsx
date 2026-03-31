@@ -8,9 +8,11 @@ import { Pricing } from "@/components/landing/Pricing";
 import { CTA } from "@/components/landing/CTA";
 import { Footer } from "@/components/landing/Footer";
 import { SignupDialog } from "@/components/landing/SignupDialog";
+import { DemoDialog } from "@/components/landing/DemoDialog";
 
 const Index = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [demoOpen, setDemoOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<string | undefined>();
 
   const openSignup = (plan?: string) => {
@@ -21,7 +23,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar onStartTrial={() => openSignup()} />
-      <Hero onStartTrial={() => openSignup()} />
+      <Hero onStartTrial={() => openSignup()} onWatchDemo={() => setDemoOpen(true)} />
       <Features />
       <Modules />
       <HowItWorks />
@@ -29,6 +31,7 @@ const Index = () => {
       <CTA onStartTrial={() => openSignup()} />
       <Footer />
       <SignupDialog open={dialogOpen} onOpenChange={setDialogOpen} plan={selectedPlan} />
+      <DemoDialog open={demoOpen} onOpenChange={setDemoOpen} onStartTrial={() => openSignup()} />
     </div>
   );
 };
