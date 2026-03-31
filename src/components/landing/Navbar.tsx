@@ -29,7 +29,7 @@ export function Navbar({ onStartTrial }: { onStartTrial?: () => void }) {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm">Log In</Button>
+          <Button variant="ghost" size="sm" onClick={() => window.location.href = "/auth"}>Log In</Button>
           <Button size="sm" className="bg-accent text-accent-foreground hover:bg-green-dark" onClick={onStartTrial}>Get Started Free</Button>
         </div>
 
