@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import heroDashboard from "@/assets/hero-dashboard.jpg";
 
-export function Hero({ onStartTrial }: { onStartTrial?: () => void }) {
+export function Hero({ onStartTrial, onWatchDemo }: { onStartTrial?: () => void; onWatchDemo?: () => void }) {
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
       {/* Background gradient orbs */}
@@ -55,7 +55,7 @@ export function Hero({ onStartTrial }: { onStartTrial?: () => void }) {
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-green-dark h-12 px-8 text-base font-semibold gap-2" onClick={onStartTrial}>
               Start Free Trial <ArrowRight size={18} />
             </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base font-medium gap-2 border-border hover:bg-muted">
+            <Button size="lg" variant="outline" className="h-12 px-8 text-base font-medium gap-2 border-border hover:bg-muted" onClick={onWatchDemo}>
               <Play size={16} /> Watch Demo
             </Button>
           </motion.div>
