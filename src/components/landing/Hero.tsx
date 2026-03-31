@@ -55,7 +55,7 @@ export function Hero({ onStartTrial, onWatchDemo }: { onStartTrial?: () => void;
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-green-dark h-12 px-8 text-base font-semibold gap-2" onClick={onStartTrial}>
               Start Free Trial <ArrowRight size={18} />
             </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base font-medium gap-2 border-border hover:bg-muted">
+            <Button size="lg" variant="outline" className="h-12 px-8 text-base font-medium gap-2 border-border hover:bg-muted" onClick={onWatchDemo}>
               <Play size={16} /> Watch Demo
             </Button>
           </motion.div>
