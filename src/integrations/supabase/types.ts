@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      profiles: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          owner_name: string | null
+          restaurant_name: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id: string
+          owner_name?: string | null
+          restaurant_name?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          owner_name?: string | null
+          restaurant_name?: string | null
+        }
+        Relationships: []
+      }
       trial_leads: {
         Row: {
           created_at: string
