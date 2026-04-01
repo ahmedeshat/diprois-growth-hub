@@ -3,12 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import marcoImg from "@/assets/testimonial-marco.jpg";
+import sophieImg from "@/assets/testimonial-sophie.jpg";
+import andreasImg from "@/assets/testimonial-andreas.jpg";
+import elenaImg from "@/assets/testimonial-elena.jpg";
+
 const testimonials = [
   {
     name: "Marco Rossi",
     role: "Owner, Trattoria del Sole",
     location: "Milan, Italy",
-    image: "MR",
+    image: marcoImg,
     quote: "Diprois transformed our restaurant. We reduced food waste by 32% in just three months, and our profit margins have never been better. The AI insights are incredibly accurate.",
     stats: { label: "Waste Reduced", value: "32%" },
     rating: 5,
@@ -17,7 +22,7 @@ const testimonials = [
     name: "Sophie Laurent",
     role: "GM, Le Petit Bistro",
     location: "Paris, France",
-    image: "SL",
+    image: sophieImg,
     quote: "The menu engineering module alone paid for itself within weeks. We identified our top performers and repriced strategically — revenue went up 24% without changing a single recipe.",
     stats: { label: "Revenue Increase", value: "24%" },
     rating: 5,
@@ -26,7 +31,7 @@ const testimonials = [
     name: "Andreas Weber",
     role: "Owner, Gasthaus Weber",
     location: "Berlin, Germany",
-    image: "AW",
+    image: andreasImg,
     quote: "I used to spend hours managing inventory manually. With Diprois, everything is automated. The predictive reordering saved us from running out of stock during our busiest weekends.",
     stats: { label: "Hours Saved Weekly", value: "15+" },
     rating: 5,
@@ -35,7 +40,7 @@ const testimonials = [
     name: "Elena Papas",
     role: "Owner, Olive & Vine",
     location: "Athens, Greece",
-    image: "EP",
+    image: elenaImg,
     quote: "The expert consultation sessions were a game-changer. Our advisor helped us restructure our entire operation, and the AI keeps us on track with daily insights.",
     stats: { label: "Profit Growth", value: "41%" },
     rating: 5,
@@ -73,7 +78,6 @@ export function Testimonials() {
 
   return (
     <section id="testimonials" className="section-padding bg-background relative overflow-hidden">
-      {/* Subtle background accent */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -left-32 w-64 h-64 rounded-full bg-accent/5 blur-3xl" />
         <div className="absolute bottom-1/4 -right-32 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
@@ -112,8 +116,15 @@ export function Testimonials() {
               <div className="flex flex-col md:flex-row gap-8 items-center">
                 {/* Left: Avatar + Info */}
                 <div className="flex flex-col items-center md:items-start gap-4 md:w-1/3">
-                  <div className="w-20 h-20 rounded-2xl bg-navy-gradient flex items-center justify-center text-primary-foreground text-2xl font-bold shadow-lg">
-                    {t.image}
+                  <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      width={512}
+                      height={512}
+                    />
                   </div>
                   <div className="text-center md:text-left">
                     <p className="font-bold text-foreground text-lg">{t.name}</p>
@@ -125,7 +136,6 @@ export function Testimonials() {
                       <Star key={i} size={16} className="fill-accent text-accent" />
                     ))}
                   </div>
-                  {/* Stat badge */}
                   <motion.div
                     className="bg-accent/10 border border-accent/20 rounded-xl px-5 py-3 text-center"
                     initial={{ scale: 0.8, opacity: 0 }}
