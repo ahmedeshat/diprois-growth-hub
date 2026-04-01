@@ -29,6 +29,7 @@ const Index = () => {
       <Modules />
       <HowItWorks />
       <Pricing onSelectPlan={(plan) => openSignup(plan)} />
+      <Testimonials />
       <CTA onStartTrial={() => openSignup()} />
       <Footer />
       <SignupDialog open={dialogOpen} onOpenChange={setDialogOpen} plan={selectedPlan} />
