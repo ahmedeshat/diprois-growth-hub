@@ -31,9 +31,9 @@ export function Hero({ onStartTrial, onWatchDemo }: { onStartTrial?: () => void;
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-6"
           >
-            <span className="text-gradient-navy">Grow Your Restaurant</span>
+            <span className="text-gradient-navy">Grow Your Restaurant Business</span>
             <br />
-            <span className="text-gradient-green">Profitably & Sustainably</span>
+            <span className="text-gradient-green">With AI-Powered Management</span>
           </motion.h1>
 
           <motion.p
@@ -42,8 +42,8 @@ export function Hero({ onStartTrial, onWatchDemo }: { onStartTrial?: () => void;
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Diprois combines AI-powered analytics with expert human support to optimize
-            inventory, menus, costs, and marketing — all from one unified dashboard.
+            Increase restaurant customers and profits with intelligent inventory management,
+            menu engineering, cost control, and restaurant marketing — all from one platform.
           </motion.p>
 
           <motion.div
