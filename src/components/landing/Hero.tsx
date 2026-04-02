@@ -33,7 +33,7 @@ export function Hero({ onStartTrial, onWatchDemo }: { onStartTrial?: () => void;
           >
             <span className="text-gradient-navy">Grow Your Restaurant Business</span>
             <br />
-            <span className="text-gradient-green">With AI-Powered Management</span>
+            <span className="text-gradient-green">With Diprois </span>
           </motion.h1>
 
           <motion.p

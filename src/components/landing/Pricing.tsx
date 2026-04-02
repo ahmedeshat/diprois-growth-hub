@@ -64,7 +64,7 @@ export function Pricing({ onSelectPlan }: PricingProps) {
             Simple, Transparent Pricing
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
-            Start with a 14-day free trial. No credit card required. Scale as you grow.
+            Start with a 30-day free trial. No credit card required. Scale as you grow.
           </p>
         </div>
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 
 const benefits = [
-  "14-day free trial, no credit card required",
+  "30-day free trial, no credit card required",
   "Full access to AI insights & expert support",
   "Integrates with your existing POS & tools",
 ];
