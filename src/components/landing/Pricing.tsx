@@ -5,7 +5,7 @@ import { Check, ArrowRight } from "lucide-react";
 const plans = [
   {
     name: "Starter",
-    price: "165",
+    price: "135",
     description: "Perfect for independent restaurants getting started with AI-powered operations.",
     features: [
       "AI Inventory Management",
