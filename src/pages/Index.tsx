@@ -6,7 +6,7 @@ import { Modules } from "@/components/landing/Modules";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { Pricing } from "@/components/landing/Pricing";
 import { CTA } from "@/components/landing/CTA";
-import { Testimonials } from "@/components/landing/Testimonials";
+
 import { Footer } from "@/components/landing/Footer";
 import { SignupDialog } from "@/components/landing/SignupDialog";
 import { DemoDialog } from "@/components/landing/DemoDialog";
