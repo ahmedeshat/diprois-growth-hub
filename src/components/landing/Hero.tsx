@@ -82,7 +82,7 @@ export function Hero({ onStartTrial, onWatchDemo }: { onStartTrial?: () => void;
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-medium">Trusted by forward-thinking restaurants</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-medium">Trusted by restaurants across Europe — Milan, Paris, Berlin & more</p>
           <div className="flex items-center justify-center gap-8 md:gap-12 opacity-40 flex-wrap">
             {["Fine Dining Co.", "Urban Eats", "Bistro Group", "ChainFresh", "Savory Labs"].map((name) => (
               <span key={name} className="text-sm font-bold text-foreground tracking-wide">{name}</span>

@@ -33,12 +33,12 @@ export function Features() {
     <section id="features" className="section-padding bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-xs uppercase tracking-widest text-accent font-semibold">Core Features</span>
+          <span className="text-xs uppercase tracking-widest text-accent font-semibold">Restaurant Management Features</span>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight mt-3 text-foreground">
-            Everything Your Restaurant Needs
+            Complete Restaurant Management Software
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
-            One unified platform replacing multiple tools — from inventory to marketing, powered by AI and expert insights.
+            One unified platform for restaurant inventory management, menu engineering, cost control, and marketing optimization — powered by AI.
           </p>
         </div>
 
