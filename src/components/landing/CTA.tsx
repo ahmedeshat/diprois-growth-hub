@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 
 const benefits = [
-  "14-day free trial, no credit card required",
+  "30-day free trial, no credit card required",
   "Full access to AI insights & expert support",
   "Integrates with your existing POS & tools",
 ];
@@ -28,7 +28,7 @@ export function CTA({ onStartTrial }: { onStartTrial?: () => void }) {
             Ready to Transform Your Restaurant?
           </h2>
           <p className="text-primary-foreground/70 text-lg mb-8 max-w-xl mx-auto">
-            Join hundreds of restaurants already using Diprois to cut costs, reduce waste, and grow revenue.
+            Join restaurants already using Diprois to reduce costs, minimize waste, and grow revenue.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">

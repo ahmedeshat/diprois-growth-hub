@@ -38,7 +38,7 @@ export function Features() {
             Complete Restaurant Management Software
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
-            One unified platform for restaurant inventory management, menu engineering, cost control, and marketing optimization — powered by AI.
+            One unified platform for restaurant inventory management, menu engineering, cost control, and marketing optimization
           </p>
         </div>
 

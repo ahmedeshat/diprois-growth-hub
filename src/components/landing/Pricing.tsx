@@ -5,7 +5,7 @@ import { Check, ArrowRight } from "lucide-react";
 const plans = [
   {
     name: "Starter",
-    price: "165",
+    price: "135",
     description: "Perfect for independent restaurants getting started with AI-powered operations.",
     features: [
       "AI Inventory Management",
@@ -20,7 +20,7 @@ const plans = [
   },
   {
     name: "Professional",
-    price: "325",
+    price: "225",
     description: "For growing restaurants that need full optimization and expert guidance.",
     features: [
       "Everything in Starter",
@@ -64,7 +64,7 @@ export function Pricing({ onSelectPlan }: PricingProps) {
             Simple, Transparent Pricing
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
-            Start with a 14-day free trial. No credit card required. Scale as you grow.
+            Start with a 30-day free trial. No credit card required. Scale as you grow.
           </p>
         </div>
 

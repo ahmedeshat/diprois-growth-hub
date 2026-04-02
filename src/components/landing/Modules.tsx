@@ -5,7 +5,7 @@ const modules = [
   {
     icon: Brain,
     title: "AI-Powered Insights",
-    desc: "GPT-4o analyzes your operations daily, delivering personalized recommendations for menu pricing, waste reduction, and cost optimization that drive measurable ROI.",
+    desc: "A high-performance LLM analyzes your operations daily and delivers personalized recommendations on menu pricing, waste reduction, and cost optimization to drive measurable ROI.",
     stats: "30% avg cost reduction",
   },
   {
