@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import diproisLogo from "@/assets/diprois-logo.png";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -16,8 +17,9 @@ export function Navbar({ onStartTrial }: { onStartTrial?: () => void }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-xl border-b border-border/50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
-        <a href="/" className="text-2xl font-black tracking-tight text-primary">
-          Diprois
+        <a href="/" className="flex items-center gap-2">
+          <img src={diproisLogo} alt="Diprois" className="h-8 w-8" />
+          <span className="text-2xl font-black tracking-tight text-primary">Diprois</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
