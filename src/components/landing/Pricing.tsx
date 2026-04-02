@@ -20,7 +20,7 @@ const plans = [
   },
   {
     name: "Professional",
-    price: "325",
+    price: "225",
     description: "For growing restaurants that need full optimization and expert guidance.",
     features: [
       "Everything in Starter",
