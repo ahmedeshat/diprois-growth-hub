@@ -56,8 +56,9 @@ const Auth = () => {
 
         <Card className="border-border/50 shadow-xl">
           <CardHeader className="text-center">
-            <a href="/" className="text-2xl font-black tracking-tight text-primary mb-2 inline-block">
-              Diprois
+            <a href="/" className="flex items-center justify-center gap-2 mb-2">
+              <img src={diproisLogo} alt="Diprois" className="h-10 w-10" />
+              <span className="text-2xl font-black tracking-tight text-primary">Diprois</span>
             </a>
             <CardTitle className="text-xl">{isLogin ? "Welcome back" : "Create your account"}</CardTitle>
             <CardDescription>
