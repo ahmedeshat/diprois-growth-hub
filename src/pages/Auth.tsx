@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Lock, User, ArrowLeft } from "lucide-react";
+import { Mail, Lock, User } from "lucide-react";
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
