@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Lock, User } from "lucide-react";
+import diproisLogo from "@/assets/diprois-logo.png";
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -55,8 +56,9 @@ const Auth = () => {
 
         <Card className="border-border/50 shadow-xl">
           <CardHeader className="text-center">
-            <a href="/" className="text-2xl font-black tracking-tight text-primary mb-2 inline-block">
-              Diprois
+            <a href="/" className="flex items-center justify-center gap-2 mb-2">
+              <img src={diproisLogo} alt="Diprois" className="h-10 w-10" />
+              <span className="text-2xl font-black tracking-tight text-primary">Diprois</span>
             </a>
             <CardTitle className="text-xl">{isLogin ? "Welcome back" : "Create your account"}</CardTitle>
             <CardDescription>
