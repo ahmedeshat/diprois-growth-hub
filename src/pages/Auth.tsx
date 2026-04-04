@@ -78,76 +78,127 @@ const Auth = () => {
               <img src={diproisLogo} alt="Diprois" className="h-10 w-10" />
               <span className="text-2xl font-black tracking-tight text-primary">Diprois</span>
             </a>
-            <CardTitle className="text-xl">{isLogin ? "Welcome back" : "Create your account"}</CardTitle>
+            <CardTitle className="text-xl">
+              {isForgotPassword ? "Reset your password" : isLogin ? "Welcome back" : "Create your account"}
+            </CardTitle>
             <CardDescription>
-              {isLogin ? "Sign in to access your dashboard" : "Start your free trial today"}
+              {isForgotPassword
+                ? "Enter your email and we'll send you a reset link"
+                : isLogin
+                ? "Sign in to access your dashboard"
+                : "Start your free trial today"}
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {!isLogin && (
+            {isForgotPassword ? (
+              <form onSubmit={handleForgotPassword} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full Name</Label>
+                  <Label htmlFor="reset-email">Email</Label>
                   <div className="relative">
-                    <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input
-                      id="name"
-                      placeholder="John Doe"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
+                      id="reset-email"
+                      type="email"
+                      placeholder="you@restaurant.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="pl-10"
                       required
                     />
                   </div>
                 </div>
-              )}
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="you@restaurant.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10"
-                    required
-                  />
+                <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-green-dark" disabled={loading}>
+                  {loading ? "Please wait..." : "Send Reset Link"}
+                </Button>
+                <div className="text-center text-sm">
+                  <button
+                    type="button"
+                    onClick={() => setIsForgotPassword(false)}
+                    className="text-primary font-medium hover:underline"
+                  >
+                    Back to sign in
+                  </button>
                 </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    id="password"
-                    type="password"
-                    placeholder="••••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10"
-                    required
-                    minLength={6}
-                  />
-                </div>
-              </div>
-              <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-green-dark" disabled={loading}>
-                {loading ? "Please wait..." : isLogin ? "Sign In" : "Create Account"}
-              </Button>
-            </form>
+              </form>
+            ) : (
+              <>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {!isLogin && (
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name</Label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="name"
+                          placeholder="John Doe"
+                          value={fullName}
+                          onChange={(e) => setFullName(e.target.value)}
+                          className="pl-10"
+                          required
+                        />
+                      </div>
+                    </div>
+                  )}
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="you@restaurant.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="pl-10"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <Label htmlFor="password">Password</Label>
+                      {isLogin && (
+                        <button
+                          type="button"
+                          onClick={() => setIsForgotPassword(true)}
+                          className="text-xs text-muted-foreground hover:text-primary hover:underline"
+                        >
+                          Forgot password?
+                        </button>
+                      )}
+                    </div>
+                    <div className="relative">
+                      <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        id="password"
+                        type="password"
+                        placeholder="••••••••"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="pl-10"
+                        required
+                        minLength={6}
+                      />
+                    </div>
+                  </div>
+                  <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-green-dark" disabled={loading}>
+                    {loading ? "Please wait..." : isLogin ? "Sign In" : "Create Account"}
+                  </Button>
+                </form>
 
-            <div className="mt-6 text-center text-sm">
-              <span className="text-muted-foreground">
-                {isLogin ? "Don't have an account? " : "Already have an account? "}
-              </span>
-              <button
-                onClick={() => setIsLogin(!isLogin)}
-                className="text-primary font-medium hover:underline"
-              >
-                {isLogin ? "Sign up" : "Sign in"}
-              </button>
-            </div>
+                <div className="mt-6 text-center text-sm">
+                  <span className="text-muted-foreground">
+                    {isLogin ? "Don't have an account? " : "Already have an account? "}
+                  </span>
+                  <button
+                    onClick={() => setIsLogin(!isLogin)}
+                    className="text-primary font-medium hover:underline"
+                  >
+                    {isLogin ? "Sign up" : "Sign in"}
+                  </button>
+                </div>
+              </>
+            )}
           </CardContent>
         </Card>
       </div>
