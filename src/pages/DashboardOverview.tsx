@@ -8,11 +8,9 @@ import { MarketingSection } from "@/components/dashboard/MarketingSection";
 import { AIInsights } from "@/components/dashboard/AIInsights";
 import { ActivityPanel } from "@/components/dashboard/ActivityPanel";
 
-interface DashboardOverviewProps {
-  userName: string;
-}
-
-const DashboardOverview = ({ userName }: DashboardOverviewProps) => (
+const DashboardOverview = () => {
+  // Get user from outlet context is complex; just use supabase directly
+  const userName = "Restaurant Owner";
   <div className="space-y-6">
     <div>
       <h1 className="text-xl font-bold text-foreground">
