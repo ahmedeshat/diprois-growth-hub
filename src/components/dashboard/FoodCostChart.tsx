@@ -1,8 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShoppingCart } from "lucide-react";
-import { foodCostData } from "./dashboardData";
 
-export function FoodCostChart() {
+interface FoodCostItem {
+  month: string;
+  actual: number;
+  target: number;
+}
+
+export function FoodCostChart({ data }: { data: FoodCostItem[] }) {
   return (
     <Card className="border-border/40">
       <CardHeader className="pb-2">
@@ -13,7 +18,7 @@ export function FoodCostChart() {
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
-          {foodCostData.map((d) => (
+          {data.map((d) => (
             <div key={d.month} className="flex items-center gap-3">
               <span className="text-[11px] font-medium text-muted-foreground w-8">{d.month}</span>
               <div className="flex-1 h-6 bg-muted/50 rounded-full overflow-hidden relative">
@@ -21,10 +26,7 @@ export function FoodCostChart() {
                   className={`h-full rounded-full transition-all ${d.actual <= d.target ? "bg-accent/70" : "bg-destructive/70"}`}
                   style={{ width: `${(d.actual / 40) * 100}%` }}
                 />
-                <div
-                  className="absolute top-0 h-full w-0.5 bg-foreground/30"
-                  style={{ left: `${(d.target / 40) * 100}%` }}
-                />
+                <div className="absolute top-0 h-full w-0.5 bg-foreground/30" style={{ left: `${(d.target / 40) * 100}%` }} />
               </div>
               <span className="text-[11px] font-semibold text-foreground w-10 text-right">{d.actual}%</span>
             </div>

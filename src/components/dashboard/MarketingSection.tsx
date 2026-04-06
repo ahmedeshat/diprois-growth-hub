@@ -1,8 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Megaphone, ArrowUpRight, ArrowDownRight } from "lucide-react";
-import { marketingChannels } from "./dashboardData";
 
-export function MarketingSection() {
+interface MarketingChannel {
+  channel: string; spend: string; leads: number; bookings: number; cac: string; roi: string; trend: string;
+}
+
+export function MarketingSection({ data }: { data: MarketingChannel[] }) {
   return (
     <Card className="border-border/40">
       <CardHeader className="pb-3">
@@ -26,7 +29,7 @@ export function MarketingSection() {
               </tr>
             </thead>
             <tbody>
-              {marketingChannels.map((ch) => (
+              {data.map((ch) => (
                 <tr key={ch.channel} className="border-b border-border/20 last:border-0 hover:bg-muted/30 transition-colors">
                   <td className="py-3 font-medium text-foreground">{ch.channel}</td>
                   <td className="py-3 text-right text-muted-foreground">{ch.spend}</td>

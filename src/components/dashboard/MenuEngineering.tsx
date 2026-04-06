@@ -1,7 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ChefHat } from "lucide-react";
-import { menuItems } from "./dashboardData";
 
 const quadrantLabel = (pop: string, prof: string) => {
   if (pop === "high" && prof === "high") return { label: "⭐ Star", color: "bg-accent/10 text-accent" };
@@ -10,7 +8,11 @@ const quadrantLabel = (pop: string, prof: string) => {
   return { label: "⚠️ Underperformer", color: "bg-destructive/10 text-destructive" };
 };
 
-export function MenuEngineering() {
+interface MenuItem {
+  name: string; orders: number; revenue: string; cost: string; margin: string; popularity: string; profitability: string;
+}
+
+export function MenuEngineering({ data }: { data: MenuItem[] }) {
   return (
     <Card className="border-border/40">
       <CardHeader className="pb-3">
@@ -33,7 +35,7 @@ export function MenuEngineering() {
               </tr>
             </thead>
             <tbody>
-              {menuItems.map((item) => {
+              {data.map((item) => {
                 const quad = quadrantLabel(item.popularity, item.profitability);
                 return (
                   <tr key={item.name} className="border-b border-border/20 last:border-0 hover:bg-muted/30 transition-colors">
@@ -43,9 +45,7 @@ export function MenuEngineering() {
                     <td className="py-3 text-right text-muted-foreground">{item.cost}</td>
                     <td className="py-3 text-right font-semibold text-accent">{item.margin}</td>
                     <td className="py-3 text-right">
-                      <span className={`inline-flex text-[10px] font-medium px-2 py-0.5 rounded-full ${quad.color}`}>
-                        {quad.label}
-                      </span>
+                      <span className={`inline-flex text-[10px] font-medium px-2 py-0.5 rounded-full ${quad.color}`}>{quad.label}</span>
                     </td>
                   </tr>
                 );
