@@ -35,6 +35,7 @@ const App = () => (
             <Route path="marketing" element={<DashboardMarketing />} />
             <Route path="analytics" element={<DashboardAnalytics />} />
             <Route path="recommendations" element={<DashboardRecommendations />} />
+            <Route path="settings" element={<DashboardSettings />} />
           </Route>
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="*" element={<NotFound />} />
