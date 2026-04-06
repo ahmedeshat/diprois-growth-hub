@@ -1,13 +1,21 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trash2, TrendingDown, TrendingUp } from "lucide-react";
-import { wasteData, wasteCategoryData, topWastedIngredients } from "./dashboardData";
 
-export function WasteSection() {
+interface WasteItem { week: string; cost: number; pct: number; }
+interface WasteCategoryItem { category: string; cost: number; pct: number; }
+interface WastedIngredientItem { name: string; cost: string; trend: string; }
+
+interface WasteSectionProps {
+  wasteData: WasteItem[];
+  wasteCategoryData: WasteCategoryItem[];
+  topWastedIngredients: WastedIngredientItem[];
+}
+
+export function WasteSection({ wasteData, wasteCategoryData, topWastedIngredients }: WasteSectionProps) {
   const totalWaste = wasteData.reduce((sum, w) => sum + w.cost, 0);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-      {/* Waste trend */}
       <Card className="border-border/40">
         <CardHeader className="pb-2">
           <CardTitle className="text-sm font-semibold flex items-center gap-2">
@@ -32,7 +40,6 @@ export function WasteSection() {
         </CardContent>
       </Card>
 
-      {/* Category breakdown */}
       <Card className="border-border/40">
         <CardHeader className="pb-2">
           <CardTitle className="text-sm font-semibold">By Category</CardTitle>
@@ -54,7 +61,6 @@ export function WasteSection() {
         </CardContent>
       </Card>
 
-      {/* Most wasted */}
       <Card className="border-border/40">
         <CardHeader className="pb-2">
           <CardTitle className="text-sm font-semibold">Most Wasted Items</CardTitle>

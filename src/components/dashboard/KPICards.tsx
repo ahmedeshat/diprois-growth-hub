@@ -4,16 +4,22 @@ import {
   AlertTriangle, Target, ShoppingBag, TrendingUp,
   ArrowUpRight, ArrowDownRight
 } from "lucide-react";
-import { kpiData } from "./dashboardData";
 
 const icons = [DollarSign, ShoppingCart, Trash2, Package, AlertTriangle, Target, ShoppingBag, TrendingUp];
 
-export function KPICards() {
+interface KPIItem {
+  title: string;
+  value: string;
+  change: string;
+  up: boolean;
+  subtitle: string;
+}
+
+export function KPICards({ data }: { data: KPIItem[] }) {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      {kpiData.map((kpi, i) => {
-        const Icon = icons[i];
-        const isPositive = kpi.up;
+      {data.map((kpi, i) => {
+        const Icon = icons[i % icons.length];
         return (
           <Card key={kpi.title} className="border-border/40 hover:shadow-md transition-shadow">
             <CardContent className="p-5">
@@ -25,8 +31,8 @@ export function KPICards() {
               </div>
               <div className="text-2xl font-bold text-foreground tracking-tight">{kpi.value}</div>
               <div className="flex items-center justify-between mt-2">
-                <div className={`flex items-center gap-1 text-xs font-semibold ${isPositive ? "text-accent" : "text-destructive"}`}>
-                  {isPositive ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
+                <div className={`flex items-center gap-1 text-xs font-semibold ${kpi.up ? "text-accent" : "text-destructive"}`}>
+                  {kpi.up ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
                   {kpi.change}
                 </div>
                 <span className="text-[10px] text-muted-foreground">{kpi.subtitle}</span>

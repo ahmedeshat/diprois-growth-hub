@@ -2,7 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Package } from "lucide-react";
-import { inventoryItems } from "./dashboardData";
 
 const statusConfig: Record<string, { label: string; variant: "default" | "destructive" | "secondary" | "outline" }> = {
   critical: { label: "Critical", variant: "destructive" },
@@ -12,7 +11,11 @@ const statusConfig: Record<string, { label: string; variant: "default" | "destru
   overstock: { label: "Overstock", variant: "secondary" },
 };
 
-export function InventorySection() {
+interface InventoryItem {
+  name: string; category: string; stock: string; status: string; cost: string; reorder: boolean;
+}
+
+export function InventorySection({ data }: { data: InventoryItem[] }) {
   return (
     <Card className="border-border/40">
       <CardHeader className="pb-3">
@@ -23,25 +26,19 @@ export function InventorySection() {
       </CardHeader>
       <CardContent>
         <div className="space-y-2.5">
-          {inventoryItems.map((item) => {
-            const status = statusConfig[item.status];
+          {data.map((item) => {
+            const status = statusConfig[item.status] || statusConfig.ok;
             return (
               <div key={item.name} className="flex items-center justify-between py-2.5 border-b border-border/20 last:border-0">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <p className="text-sm font-medium text-foreground">{item.name}</p>
-                    <Badge variant={status.variant} className="text-[9px] h-4 px-1.5">
-                      {status.label}
-                    </Badge>
+                    <Badge variant={status.variant} className="text-[9px] h-4 px-1.5">{status.label}</Badge>
                   </div>
-                  <p className="text-[11px] text-muted-foreground mt-0.5">
-                    {item.category} · {item.stock} · {item.cost}
-                  </p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">{item.category} · {item.stock} · {item.cost}</p>
                 </div>
                 {item.reorder && (
-                  <Button size="sm" variant="outline" className="text-[10px] h-6 px-2.5 shrink-0">
-                    Reorder
-                  </Button>
+                  <Button size="sm" variant="outline" className="text-[10px] h-6 px-2.5 shrink-0">Reorder</Button>
                 )}
               </div>
             );
