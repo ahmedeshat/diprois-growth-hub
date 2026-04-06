@@ -12,6 +12,7 @@ import DashboardMenu from "./pages/DashboardMenu.tsx";
 import DashboardMarketing from "./pages/DashboardMarketing.tsx";
 import DashboardAnalytics from "./pages/DashboardAnalytics.tsx";
 import DashboardRecommendations from "./pages/DashboardRecommendations.tsx";
+import DashboardSettings from "./pages/DashboardSettings.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
