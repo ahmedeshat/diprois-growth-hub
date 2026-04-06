@@ -16,13 +16,6 @@ type SheetTab =
   | "Alerts";
 
 async function fetchSheet(tab: SheetTab, sheetId: string) {
-  const { data, error } = await supabase.functions.invoke("read-google-sheet", {
-    body: null,
-    headers: { "Content-Type": "application/json" },
-  });
-
-  // Use query params approach via direct fetch
-  const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
   const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
@@ -42,7 +35,6 @@ async function fetchSheet(tab: SheetTab, sheetId: string) {
   return json.data as Record<string, string>[];
 }
 
-// Transform functions for each tab
 function parseNumber(val: string): number {
   return parseFloat(val.replace(/[€,%x]/g, "").replace(/,/g, "")) || 0;
 }
@@ -186,7 +178,7 @@ export function useSheetData<T = any>(tab: SheetTab, sheetId: string | null) {
       return transformers[tab](raw) as T[];
     },
     enabled: !!sheetId,
-    staleTime: 5 * 60 * 1000, // 5 min cache
+    staleTime: 5 * 60 * 1000,
     retry: 1,
   });
 
@@ -198,7 +190,6 @@ export function useSheetData<T = any>(tab: SheetTab, sheetId: string | null) {
   };
 }
 
-// Hook to get the user's sheet ID from their profile or settings
 export function useSheetId() {
   const query = useQuery({
     queryKey: ["user-sheet-id"],
@@ -206,7 +197,7 @@ export function useSheetId() {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return null;
 
-      const { data } = await supabase
+      const { data } = await (supabase as any)
         .from("user_settings")
         .select("google_sheet_id")
         .eq("user_id", user.id)

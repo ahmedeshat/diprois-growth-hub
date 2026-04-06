@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Settings, FileSpreadsheet, Save, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { FileSpreadsheet, Save, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
@@ -25,7 +25,7 @@ const DashboardSettings = () => {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return;
 
-    const { data } = await supabase
+    const { data } = await (supabase as any)
       .from("user_settings")
       .select("google_sheet_id")
       .eq("user_id", user.id)
@@ -43,7 +43,7 @@ const DashboardSettings = () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) throw new Error("Not authenticated");
 
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from("user_settings")
         .upsert({
           user_id: user.id,
@@ -52,7 +52,6 @@ const DashboardSettings = () => {
 
       if (error) throw error;
 
-      // Invalidate all sheet data queries
       queryClient.invalidateQueries({ queryKey: ["sheet-data"] });
       queryClient.invalidateQueries({ queryKey: ["user-sheet-id"] });
 
@@ -83,7 +82,7 @@ const DashboardSettings = () => {
           toast({ title: "Connection successful!", description: `Found ${json.data.length} rows in KPIs tab.` });
         } else {
           setTestResult("error");
-          toast({ title: "No data found", description: "The KPIs tab appears to be empty. Make sure your sheet has a tab named 'KPIs'.", variant: "destructive" });
+          toast({ title: "No data found", description: "The KPIs tab appears to be empty.", variant: "destructive" });
         }
       } else {
         setTestResult("error");
